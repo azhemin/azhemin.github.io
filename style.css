@@ -1,5 +1,131 @@
-h1 {color: blue;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2rem ;}
+@import url(https://fonts.google.com/specimen/Asul?query=asul);
 
-body {background-color: blanchedalmond;}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+}
+
+
+/* navigointi */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+
+
+
+
+
+/* taustakuva */
+
+html {
+    background: url(kuvat/ETUSIVU.jfif) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-image: cover;
+    z-index: 9999;
+   
+    
+}
+
+
+
+
+
+/* tekstityylit ja napit*/
+
+li, a, button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+.asul-regular {
+  font-family: "Asul", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.asul-bold {
+  font-family: "Asul", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.navlinkit { list-style: none;
+}
+
+.navlinkit li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+ 
+.navlinkit li a {
+    transition: all 0.3s ease 0s;
+}
+.navlinkit li a:hover {
+    color: #0088a9
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgpa(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    button:hover
+     {background-color: rgpa(0,136,169,0.8);
+
+    }
+    
+
+}
+
+/* näyttö */
+
+@media screen and (max-width: 991px) {
+    /* tabletti iso */
+    
+    }
+    
+    @media screen and (max-width: 767px) {
+    /* tabletti normaali */
+    
+    }
+    
+    @media screen and (max-width: 479px) {
+    /* mobiili */
+    
+    }
+
+
+
+
+
+/* linkit */
+
+
+
+
+
+
+/* flex */
+
+
+
+
+
