@@ -24,18 +24,16 @@ header {
 
 /* taustakuva */
 
-html {
-    background: url(kuvat/ETUSIVU.jfif) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-image: cover;
-    z-index: 9999;
+
    
     
 }
 
-
-
+.img{
+    border: 2px;
+    padding: 1px;
+    border-image-width: 10%;
+}
 
 
 /* tekstityylit ja napit*/
@@ -116,7 +114,15 @@ button {
 
 
 
-/* linkit */
+/* tekstit */
+
+h2 {
+    color:azure
+    font-family: "Asul", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+}
 
 
 
