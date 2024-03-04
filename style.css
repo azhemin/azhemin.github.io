@@ -1,23 +1,28 @@
 @import url(https://fonts.google.com/specimen/Asul?query=asul);
 
 *{
-    box-sizing: border-box;
+    box-sizing: content-box;
     margin: 0;
-    padding: 0;
-    background-color: #24252A;
+    padding: 0; 
+    
+    
 }
 
 
 /* navigointi */
 
 header {
-    display: flex;
+    display: flex; 
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
+    background-color: rgb(29, 29, 28);
+    flex-direction:row;
+    
+    
+
+    
 }
-
-
 
 
 
@@ -25,11 +30,9 @@ header {
 /* taustakuva */
 
 
-.img{
-    border: 2px;
-    padding: 1px;
-    border-image-width: 10%;
-}
+    
+
+
 
 
 /* tekstityylit ja napit*/
@@ -112,13 +115,6 @@ button {
 
 /* tekstit */
 
-h2 {
-    color:azure
-    font-family: "Asul", serif;
-    font-weight: 400;
-    font-style: normal;
-    text-decoration: none;
-}
 
 
 
@@ -128,6 +124,31 @@ h2 {
 /* flex */
 
 
+body{
+    background: url(kuvat/etusivu.png);
+    background-repeat: no-repeat;
+    background-color: rgb(29, 28, 28);
+    background-size: auto;
+    background-position: 50%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    min-height: fit-content;
+    min-width: fit-content;
 
 
+}
 
+
+.levymainos {
+
+    width: 25%;
+    height: 25%;
+    display: flex;
+    margin: auto;
+    padding-top: 120px;
+    min-width: fit-content;
+    min-height: fit-content;
+    
+
+}
