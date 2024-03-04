@@ -168,7 +168,7 @@ button {
   }
 
   .text {
-    text-align: ;
+    text-align: center;
     
   }
 
@@ -196,8 +196,7 @@ body{
     padding-top: 150px;
     min-width: fit-content;
     min-height: fit-content;
-    padding-left: 33%;
-    padding-right: 33%;
+  
 
     
 
