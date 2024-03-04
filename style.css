@@ -1,9 +1,10 @@
 @import url(https://fonts.google.com/specimen/Asul?query=asul);
 
 *{
-    box-sizing: content-box;
+    box-sizing:border-box;
     margin: 0;
     padding: 0; 
+    
     
     
 }
@@ -15,9 +16,9 @@ header {
     display: flex; 
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
+    padding: 25px 10%;
     background-color: rgb(29, 29, 28);
-    flex-direction:row;
+   
     
     
 
@@ -38,15 +39,19 @@ header {
 /* tekstityylit ja napit*/
 
 li, a, button {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Asul", serif;
     font-weight: 500;
-    font-size: 16px;
-    color: white;
+    font-size: 20px;
+    color: rgb(233, 226, 187);
     text-decoration: none;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    
 }
 .asul-regular {
   font-family: "Asul", serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   text-decoration: none;
 }
@@ -57,23 +62,53 @@ li, a, button {
   font-style: normal;
 }
 
+h2 {  
+  font-family: "Asul", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  color: azure;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+
+p { 
+
+    font-family: "Asul", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+    color: azure;
+    text-align: center;
+    padding-top: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    
+
+}
+
 .logo {
     cursor: pointer;
+    
 }
 
 .navlinkit { list-style: none;
+    
 }
 
 .navlinkit li {
     display: inline-block;
-    padding: 0px 20px;
+    padding: 6px 20px;
 }
  
 .navlinkit li a {
     transition: all 0.3s ease 0s;
 }
 .navlinkit li a:hover {
-    color: #0088a9
+    color: #7e6000
 }
 
 button {
@@ -122,17 +157,29 @@ button {
 
 
 /* flex */
+.container {
+    box-sizing:border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    padding-bottom: 50px;
+    
+  }
 
+  .text {
+    text-align: ;
+    
+  }
 
 body{
-    background: url(kuvat/etusivu.png);
+    background: url(kuvat/etusivu\ 2.png);
     background-repeat: no-repeat;
     background-color: rgb(29, 28, 28);
     background-size: auto;
     background-position: 50%;
     margin: 0;
     padding: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     min-height: fit-content;
     min-width: fit-content;
 
@@ -146,9 +193,10 @@ body{
     height: 25%;
     display: flex;
     margin: auto;
-    padding-top: 120px;
+    padding-top: 150px;
     min-width: fit-content;
     min-height: fit-content;
+
     
 
 }
