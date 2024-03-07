@@ -3,7 +3,7 @@
  
     
 
-/* navigointi */
+/* navigointi, logo yhdistetty navigointi borderin sisälle*/
 
 *{
     box-sizing:border-box;
@@ -34,14 +34,9 @@ header {
         
     }
     
-    li {
-        flex-direction: row;
-    }
-    
-    
     
     .logo {
-        cursor: pointer;
+    
         padding-left: 20px;
         padding-right: 5px;
         
@@ -63,21 +58,10 @@ header {
         color: #7e6000
     }
     
-    button {
-        padding: 9px 25px;
-        background-color: rgpa(0,136,169,1);
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease 0s;
     
-        button:hover
-         {background-color: rgpa(0,136,169,0.8);
-    
-        }
         
     
-    }
+    
 
 
 
@@ -98,7 +82,7 @@ body{
 
 
 
-/* näyttö */
+/* näyttösklaalaus */
 
 @media screen and (max-width: 991px) {
     /* tabletti iso */
@@ -131,10 +115,10 @@ p {
     padding-top: 50px;
     padding-left: 10%;
     padding-right: 10%;
-    display: flex;
+    
     
 }
-
+ 
 .asul-regular {
     font-family: "Asul", serif;
     font-weight: 500;
@@ -164,6 +148,8 @@ p {
 
 
 
+
+
 /* teksilaatikko */
 
 .container {
@@ -172,7 +158,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80%;
     padding-bottom: 50px;
     
 }
@@ -192,4 +177,11 @@ p {
     min-width: fit-content;
     min-height: fit-content;
 
+}
+
+.bandikuva1 {
+
+    height: 150;
+    width: 150;
+    
 }
