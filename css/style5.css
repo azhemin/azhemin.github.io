@@ -69,14 +69,14 @@ header {
 /* taustakuva */
 
 body{
-    background: url(../kuvat/etusivu\ 2.png);
+    background: url(../kuvat/music.png);
     background-repeat: no-repeat;
     background-color: rgb(29, 28, 28);
     background-size: cover;
     margin: 0;
     padding: 0;
-    min-height: fit-content;
-    min-width: fit-content;
+    
+    
 
 }
 
@@ -133,6 +133,26 @@ p {
     padding-right: 20px;
   
   }
+
+  h4 {
+    color: white;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 150px;
+  }
+
+  h5 {
+    font-family: "Asul", serif;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    font-size: 30px;
+    color: aliceblue;
+    
+
+}
 
   span {
     color:yellow;
