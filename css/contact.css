@@ -14,16 +14,15 @@
 }
 
 header {
-    display: flex; 
-    justify-content:center;
-    align-items: center;
-    padding: 30px 10%;
-    background-color: rgb(29, 29, 28);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 10px;
-   
+  display: flex; 
+  justify-content:center;
+  align-items: center;
+  padding: 30px 20%;
+  background-color: rgb(29, 29, 28);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px;
     }
 
     li, a, button {
