@@ -9,7 +9,13 @@ Lähdin tekemään sivuja hatarin taidoin. Hakkasin päätäni seinään moneen 
 
 Todettuani että taisin haukata, aloin katsomaan youtube videoita ja tutkimaan miten mikäkin toimii. Opin parhaiten, kun joku näyttää miten homma tehdään. En ole todellakaan järjestelmällinen ihminen millään mittapuulla, joten jokainen html-sivuni ja css tiedostoni on vähän vain oman mieleni tavoitettavissa ja täten todella sekava varmaan kun katsoo ulkopuolelta. 
 
-Onnistuin silti luomaan omasta mielestäni ihan toimivat sivut. olen k
+Onnistuin silti luomaan omasta mielestäni ihan toimivat sivut. Skaalautuvuus toimii eri kokoisissa näytöissä. Testasin ipad, puhelin, 1920x 1020 monitori ja jopa 4k monitori. 
+
+Parasta tässä pitkässä pätkässä mitä rävelsin näiden sivujen kanssa oli se, että vihdoinkin opin jotain aiheesta ja osaan jatkossa suunnitella varmasti paremmat sivut.
+
+Olen ylpeä miltä sivuni näyttävät, en olisi uskonut että pystyn tekemään  jotain näin hienoa näillä minun amatööri taidoillani.
+
+
 
 Muistilista itselleni seuraavaa html sivustoani varten:
 
@@ -32,6 +38,17 @@ keskity index sivun style.css(index.css) navigointipalkin ulkoasun luontiin. (ko
 kun olet tyytyväinen navigointipalkkiin, kopioi css koodin, muille css alasivuille.
 
 seuraa suunnitelmaa, etene ja kommentoi. Katso että koodin on helposti luettavissa jos ulkopuolinen haluaa sitä lukea.
+
+jatka ja noudata suunnitelmaa.....
+
+
+näin teen seuraavalla kerralla. 
+
+
+
+
+
+
 
 
 
