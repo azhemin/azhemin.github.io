@@ -210,8 +210,14 @@ p {
     align-items: center;
     text-align: center;
     color: rgb(255, 255, 253);
+<<<<<<< HEAD
+    padding-top:30px;
+    padding-bottom: 30px;
+     
+=======
     padding-top: 20px;
     padding-bottom: 20px;
+>>>>>>> 391deca68ee2e1e7abea425ed5b3c1b34a230cda
     
     
   }
