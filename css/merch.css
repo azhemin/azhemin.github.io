@@ -36,7 +36,7 @@ span {
 }
 
 
-/* taustakuva */
+
 
 
     
@@ -81,18 +81,21 @@ h2 {
 
 }
 h3 {
-    color: white;
+    
+    color:yellow;
     font-size: 30px;
     padding-top: 50px;
     justify-content: center;
     align-items: center;
     display: flex;
+    font-family: "Asul", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
 
-}
 
-li {
-    flex-direction: row;
-}
+
+
 
 p { 
 
@@ -102,10 +105,13 @@ p {
     font-size: 16px;
     color:white;
     
-   
+  
+        
+    
+    }
     
 
-}
+
 
 .logo {
     cursor: pointer;
@@ -207,6 +213,32 @@ button {
     max-width: 100%;
     max-height: 100%;
   }
+
+  .addtocart {
+    background-color: #182704;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.kassalle {
+    background-color: transparent;
+    border: none;
+    margin: auto;
+    cursor: pointer; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    
+}
 
 body{
     background: url(../kuvat/music.png);

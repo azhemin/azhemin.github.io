@@ -29,14 +29,14 @@ header {
 span {
     color:yellow;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-weight: 100px;
+    font-size: 18px;
+    font-weight: 700;
     
 
 }
 
 
-
+/* taustakuva */
 
 
     
@@ -71,15 +71,15 @@ li, a, button {
   font-style: normal;
 }
 
-h1 { 
-    
-    font-family: "Asul", serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 30px;
-    padding-top: 200px;
-
+h1 {
+  font-family: "Asul", serif;
+  font-weight: 700;
+  font-style: normal;
+  color: yellow;
+  padding-top: 50px;
 }
+
+
 
 h2 {  
   font-family: "Asul", serif;
@@ -90,21 +90,17 @@ h2 {
   
 
 }
-
-h5 {
-    font-family: "Asul", serif;
-    font-weight: 500;
-    font-style: normal;
-    text-decoration: none;
-    text-align: center;
-    font-size: 20px;
-    
+h3 {
+    color: white;
+    font-size: 30px;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 
 }
 
-li {
-    flex-direction: row;
-}
+
 
 p { 
 
@@ -188,17 +184,52 @@ button {
 
 
 
-/* flex */
+/* container */
 
+.teksti {
+    flex: auto;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 50%;
+    
+    
+}
+
+.container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:center;
+
+        
     
     
     
+  }
+
+
+  .item {
+    width: 300px;
+    height: 300px;
+    margin: 100px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 253);
+    padding: 10px;
+    
+  }
   
-
-
+  .item img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 
 body{
-    background: url(../kuvat/gigs.png);
+    background: url(../kuvat/music.png);
     background-repeat: no-repeat;
     background-color: rgb(0, 0, 0);
     background-size: cover;
@@ -207,25 +238,6 @@ body{
     min-height: fit-content;
     min-width: fit-content;
 
-
-}
-
-
-.teksti {
-
-    font-family: "Asul", serif;
-    font-weight: 100;
-    font-style: normal;
-    font-size: 16px;
-    color:white;
-    text-align: center;
-    
-    
-   
-    
-    
-      
-    
 
 }
 
