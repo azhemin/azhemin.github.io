@@ -16,8 +16,12 @@ header {
     display: flex; 
     justify-content:center;
     align-items: center;
-    padding: 30px 10%;
+    padding: 30px 20%;
     background-color: rgb(29, 29, 28);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
    
     
     
@@ -137,21 +141,10 @@ p {
     color: #7e6000
 }
 
-button {
-    padding: 9px 25px;
-    background-color: rgpa(0,136,169,1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
 
-    button:hover
-     {background-color: rgpa(0,136,169,0.8);
-
-    }
     
 
-}
+
 
 /* näyttö */
 
@@ -226,6 +219,7 @@ button {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
+
 }
 
 .kassalle {
