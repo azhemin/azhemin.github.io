@@ -1,0 +1,269 @@
+@import url(https://fonts.google.com/specimen/Asul?query=asul);
+
+*{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0; 
+    
+    
+    
+    
+}
+
+
+/* navigointi */
+
+header {
+    display: flex; 
+    justify-content:center;
+    align-items: center;
+    padding: 30px 20%;
+    background-color: rgb(29, 29, 28);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+   
+    
+    
+
+    
+}
+
+
+span {
+    color:yellow;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 700;
+    
+
+}
+
+
+/* taustakuva */
+
+
+    
+
+
+
+
+/* tekstityylit ja napit*/
+
+li, a, button {
+    font-family: "Asul", serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: rgb(233, 226, 187);
+    text-decoration: none;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    padding-right: 5px;
+    
+}
+.asul-regular {
+  font-family: "Asul", serif;
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.asul-bold {
+  font-family: "Asul", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Asul", serif;
+  font-weight: 700;
+  font-style: normal;
+  color: yellow;
+  padding-top: 50px;
+}
+
+
+
+h2 {  
+  font-family: "Asul", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color: azure;
+  
+
+}
+h3 {
+    color: white;
+    font-size: 30px;
+    padding-top: 50px;
+    
+    
+
+}
+
+
+
+p { 
+
+    font-family: "Asul", serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 16px;
+    color:white;
+    
+   
+    
+
+}
+
+.logo {
+
+    padding-left: 20px;
+    padding-right: 5px;
+
+    
+}
+
+.navlinkit { list-style: none;
+    
+}
+
+.navlinkit li {
+    display: inline-block;
+    padding: 6px 20px;
+}
+ 
+.navlinkit li a {
+    transition: all 0.3s ease 0s;
+}
+.navlinkit li a:hover {
+    color: #7e6000
+}
+
+
+
+/* näyttö */
+
+@media screen and (max-width: 991px) {
+    /* tabletti iso */
+    
+    }
+    
+    @media screen and (max-width: 767px) {
+    /* tabletti normaali */
+    
+    }
+    
+    @media screen and (max-width: 479px) {
+    /* mobiili */
+    
+    }
+
+
+
+
+
+/* tekstit */
+
+
+
+
+
+
+
+/* container */
+
+.teksti {
+    flex: auto;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 80%;
+
+    
+    
+}
+
+.container {
+        display: flex;
+        flex-wrap:wrap;
+        justify-content:center
+
+        
+    
+    
+    
+  }
+
+
+  .item {
+    width: 300px;
+    height: 300px;
+    margin: 100px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 253);
+<<<<<<< HEAD
+    padding-top:30px;
+    padding-bottom: 30px;
+     
+=======
+    padding-top: 20px;
+    padding-bottom: 20px;
+>>>>>>> 391deca68ee2e1e7abea425ed5b3c1b34a230cda
+    
+    
+  }
+  
+  .item img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+body{
+    background: url(../kuvat/gigs.png);
+    background-repeat: no-repeat;
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+   
+
+
+}
+
+.mainokset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+
+    
+
+
+
+}
+
+
+.mainos {
+
+display: flex;
+flex-direction: row; 
+justify-content: center;
+align-items: center;
+text-align: center;
+color: rgb(255, 255, 253);
+padding-bottom: 50px;
+
+}
+
+.mainos img {
+max-width: 100px;
+max-height: 100px;
+}

@@ -1,0 +1,199 @@
+@import url(https://fonts.google.com/specimen/Asul?query=asul);
+
+ 
+    
+
+/* navigointi, logo yhdistetty navigointikentän yhteyteen*/
+
+*{
+    box-sizing:border-box; 
+    margin: 0;
+    padding: 0; 
+    
+    
+}
+
+header {
+  display: flex; 
+  justify-content:center;
+  align-items: center;
+  padding: 30px 20%;
+  background-color: rgb(29, 29, 28);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px;
+    }
+
+    li, a, button {
+        font-family: "Asul", serif;
+        font-weight: 500;
+        font-size: 20px;
+        color: rgb(233, 226, 187);
+        text-decoration: none;
+        justify-content: center;
+        flex-direction: row;
+        display: flex;
+        padding-right: 5px;
+        
+    }
+    
+    
+    .logo {
+      padding-left: 20px;
+        padding-right: 5px;
+
+     
+        
+    }
+    
+    .navlinkit { list-style: none;
+        
+    }
+    
+    .navlinkit li {
+        display: inline-block;
+        padding: 6px 20px;
+    }
+     
+    .navlinkit li a {
+        transition: all 0.3s ease 0s;
+    }
+    .navlinkit li a:hover {
+        color: #7e6000
+    }
+    
+    
+        
+    
+    
+
+
+
+
+/* taustakuva */
+
+body {
+    background: url(../kuvat/etusivu\ 2.png);
+    background-repeat: no-repeat;
+    background-color: rgb(29, 28, 28);
+    background-size: cover;
+   
+    
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+/* tekstityylit */
+
+.asul-regular {
+    font-family: "Asul", serif;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+  }
+  
+  .asul-bold {
+    font-family: "Asul", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+p { 
+    font-family: "Asul", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+    color:white;
+    text-align: center;
+    padding-top: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+    
+    
+}
+ 
+
+  
+  h2 {  
+    font-family: "Asul", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    color: azure;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  
+  }
+
+  h4 {
+    color: white;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 150px;
+  }
+
+  h5 {
+    font-family: "Asul", serif;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    font-size: 30px;
+    color:yellow;
+    
+
+}
+
+  span {
+    color:yellow;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 700; }
+
+
+
+
+  
+
+/*etusivun (vaihdettavat kuvat)  */
+
+
+
+
+    
+
+
+
+
+
+
+.mainos {
+
+display: flex;
+flex-direction: row; 
+justify-content: center;
+align-items: center;
+text-align: center;
+color: rgb(255, 255, 253);
+padding-bottom: 50px;
+
+}
+
+.mainos img {
+max-width: 100px;
+max-height: 100px;
+}
