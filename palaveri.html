@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palaveri - JSON Harjoitukset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .info-box {
+            background-color: #e8f4f8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        .participant {
+            padding: 0.5rem;
+            margin: 0.25rem 0;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Etusivu</a>
+        <a href="digicafe.html">Digi Cafe</a>
+        <a href="palaveri.html">Palaveri</a>
+        <a href="tyot.html">Työpaikat</a>
+    </nav>
+
+    <div class="container">
+        <div id="palaveri"></div>
+    </div>
+
+    <script>
+        fetch('palaveri.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (responseJson) {
+                naytaPalaveri(responseJson);
+            })
+            .catch(function (error) {
+                document.getElementById("palaveri").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+            })
+
+        function naytaPalaveri(data) {
+            var teksti = "";
+            
+            teksti = "<h1>" + data.aihe + "</h1>";
+            
+            teksti = teksti + "<div class='info-box'>";
+            teksti = teksti + "<p><strong>Paikka:</strong> " + data.paikka + "</p>";
+            teksti = teksti + "<p><strong>Aika:</strong> " + data.alkamisaika + "</p>";
+            teksti = teksti + "<p><strong>Kesto:</strong> " + data.kesto + "</p>";
+            teksti = teksti + "<p><strong>Osallistujia:</strong> " + data.osallistujienLukumaara + "</p>";
+            teksti = teksti + "</div>";
+            
+            teksti = teksti + "<h2>Osallistujat</h2>";
+            for (var i = 0; i < data.osallistujat.length; i++) {
+                teksti = teksti + "<div class='participant'>" + data.osallistujat[i] + "</div>";
+            }
+            
+            document.getElementById("palaveri").innerHTML = teksti;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Työpaikat - JSON Harjoitukset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .job-listing {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+        }
+        .job-listing h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+        .job-listing a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .job-listing a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Etusivu</a>
+        <a href="digicafe.html">Digi Cafe</a>
+        <a href="palaveri.html">Palaveri</a>
+        <a href="tyot.html">Työpaikat</a>
+    </nav>
+
+    <div class="container">
+        <h1>Vantaan avoimet työpaikat</h1>
+        <p>Teknisen alan työpaikat</p>
+        <div id="tyopaikat"></div>
+    </div>
+
+    <script>
+        fetch('http://gis.vantaa.fi/rest/tyopaikat/v1/Tekninen%20ala')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (responseJson) {
+                naytaTyopaikat(responseJson);
+            })
+            .catch(function (error) {
+                document.getElementById("tyopaikat").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan.</p>";
+            })
+
+        function naytaTyopaikat(data) {
+            var teksti = "";
+            
+            if (!data || data.length === 0) {
+                teksti = "<p>Ei avoimia työpaikkoja tällä hetkellä.</p>";
+            } else {
+                teksti = "<ul style='list-style: none; padding: 0;'>";
+                
+                for (var i = 0; i < data.length; i++) {
+                    teksti = teksti + "<li class='job-listing'>";
+                    teksti = teksti + "<h3>" + data[i].tyotehtava + "</h3>";
+                    teksti = teksti + "<p><strong>Osoite:</strong> " + data[i].osoite + "</p>";
+                    teksti = teksti + "<a href='" + data[i].linkki + "' target='_blank'>Lue lisää ja hae →</a>";
+                    teksti = teksti + "</li>";
+                }
+                
+                teksti = teksti + "</ul>";
+            }
+            
+            document.getElementById("tyopaikat").innerHTML = teksti;
+        }
+    </script>
+</body>
+</html>

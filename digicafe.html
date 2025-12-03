@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digi Cafe - JSON Harjoitukset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .staff-member {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-left: 4px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Etusivu</a>
+        <a href="digicafe.html">Digi Cafe</a>
+        <a href="palaveri.html">Palaveri</a>
+        <a href="tyot.html">Työpaikat</a>
+    </nav>
+
+    <div class="container">
+        <div id="vastaus"></div>
+    </div>
+
+    <script>
+        fetch('ticocafe.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (responseJson) {
+                naytaCafe(responseJson);
+            })
+            .catch(function (error) {
+                document.getElementById("vastaus").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+            })
+
+        function naytaCafe(data) {
+            var teksti = "";
+            
+            teksti = "<h1>" + data.yritys + "</h1>";
+            
+            teksti = teksti + "<h2>Yhteystiedot</h2>";
+            teksti = teksti + "<p><strong>Osoite:</strong> " + data.yhteystiedot.osoite + "</p>";
+            teksti = teksti + "<p><strong>Puhelin:</strong> " + data.yhteystiedot.puhelin + "</p>";
+            teksti = teksti + "<p><strong>Email:</strong> " + data.yhteystiedot.email + "</p>";
+            
+            teksti = teksti + "<h2>Tuotteet</h2>";
+            teksti = teksti + "<ul>";
+            for (var i = 0; i < data.tuotteet.length; i++) {
+                teksti = teksti + "<li>" + data.tuotteet[i] + "</li>";
+            }
+            teksti = teksti + "</ul>";
+            
+            teksti = teksti + "<h2>Henkilökunta</h2>";
+            for (var i = 0; i < data.henkilokunta.length; i++) {
+                teksti = teksti + "<div class='staff-member'>";
+                teksti = teksti + "<strong>" + data.henkilokunta[i].nimi + "</strong><br>";
+                teksti = teksti + data.henkilokunta[i].titteli;
+                teksti = teksti + "</div>";
+            }
+            
+            document.getElementById("vastaus").innerHTML = teksti;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sää - JSON Harjoitukset 3b</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .weather-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .weather-box h1 {
+            margin-top: 0;
+        }
+        .weather-icon {
+            font-size: 4rem;
+        }
+        .temp {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="tapahtumat.html">Tapahtumat</a>
+        <a href="saa.html">Sää</a>
+        <a href="liikennekamera.html">Liikennekamera</a>
+        <a href="junat.html">Junat</a>
+    </nav>
+
+    <div class="container">
+        <h1>Säätiedot</h1>
+        <div id="vastaus"></div>
+    </div>
+
+    <script>
+        var apiKey = '665ecd56dfc08dbb50feb8b8f5034e28';
+
+        fetch('https://api.openweathermap.org/data/2.5/weather?lang=fi&q=helsinki&units=metric&APPID=' + apiKey)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (responseJson) {
+                saa(responseJson);
+                return fetch('https://api.openweathermap.org/data/2.5/weather?lang=fi&q=tampere&units=metric&APPID=' + apiKey);
+            })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (responseJson) {
+                saa(responseJson);
+            })
+            .catch(function (error) {
+                document.getElementById("vastaus").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+            })
+
+        function saa(data) {
+            var nykyinenTeksti = document.getElementById("vastaus").innerHTML;
+            
+            var uusiTeksti = "<div class='weather-box'>";
+            uusiTeksti = uusiTeksti + "<h1>" + data.name + "</h1>";
+            
+            if (data.weather && data.weather[0]) {
+                uusiTeksti = uusiTeksti + "<p><strong>Säätila:</strong> " + data.weather[0].description + "</p>";
+                
+                var kuva = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+                uusiTeksti = uusiTeksti + "<p><img src='" + kuva + "' alt='säätila' class='weather-icon'></p>";
+            }
+            
+            if (data.main && data.main.temp !== undefined) {
+                uusiTeksti = uusiTeksti + "<p class='temp'>" + Math.round(data.main.temp) + "&deg;C</p>";
+            }
+            
+            if (data.wind && data.wind.speed !== undefined) {
+                uusiTeksti = uusiTeksti + "<p><strong>Tuulen nopeus:</strong> " + data.wind.speed + " m/s</p>";
+            }
+            
+            uusiTeksti = uusiTeksti + "</div>";
+            
+            document.getElementById("vastaus").innerHTML = nykyinenTeksti + uusiTeksti;
+        }
+    </script>
+</body>
+</html>

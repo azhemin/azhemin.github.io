@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liikennekamera - JSON Harjoitukset 3b</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .camera-image {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .camera-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .timestamp {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="tapahtumat.html">Tapahtumat</a>
+        <a href="saa.html">Sää</a>
+        <a href="liikennekamera.html">Liikennekamera</a>
+        <a href="junat.html">Junat</a>
+    </nav>
+
+    <div class="container">
+        <h1>Tieliikennekamerat</h1>
+        <p>Kuvat matkalla Tampereelle</p>
+        <div id="vastaus"></div>
+    </div>
+
+    <script>
+        fetch('https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (responseJson) {
+                naytaKamerat(responseJson);
+            })
+            .catch(function (error) {
+                document.getElementById("vastaus").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+            })
+
+        function naytaKamerat(data) {
+            var teksti = "";
+            
+            if (!data || !data.presets || data.presets.length === 0) {
+                teksti = "<p>Ei kamerakuvia saatavilla.</p>";
+            } else {
+                for (var i = 0; i < data.presets.length; i++) {
+                    teksti = teksti + "<div class='camera-image'>";
+                    
+                    if (data.presets[i].presentationName) {
+                        teksti = teksti + "<h3>" + data.presets[i].presentationName + "</h3>";
+                    }
+                    
+                    if (data.presets[i].imageUrl) {
+                        teksti = teksti + "<img src='" + data.presets[i].imageUrl + "' alt='Liikennekamera'>";
+                    }
+                    
+                    if (data.presets[i].measuredTime) {
+                        var aika = data.presets[i].measuredTime;
+                        var pvm = aika.substr(0, 10);
+                        var kello = aika.substr(11, 5);
+                        teksti = teksti + "<p class='timestamp'>Kuvattu: " + pvm + " klo " + kello + "</p>";
+                    }
+                    
+                    teksti = teksti + "</div>";
+                }
+            }
+            
+            document.getElementById("vastaus").innerHTML = teksti;
+        }
+    </script>
+</body>
+</html>

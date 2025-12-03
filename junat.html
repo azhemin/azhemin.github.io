@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junat - JSON Harjoitukset 3b</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .train {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #27ae60;
+            border-radius: 4px;
+        }
+        .train h3 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+        .route {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .time {
+            color: #e74c3c;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="tapahtumat.html">Tapahtumat</a>
+        <a href="saa.html">Sää</a>
+        <a href="liikennekamera.html">Liikennekamera</a>
+        <a href="junat.html">Junat</a>
+    </nav>
+
+    <div class="container">
+        <h1>Junat Helsingistä Tampereelle</h1>
+        <div id="vastaus"></div>
+    </div>
+
+    <script>
+        fetch('https://rata.digitraffic.fi/api/v1/live-trains/station/HKI?departing_trains=100&include_nonstopping=false')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (responseJson) {
+                naytaJunat(responseJson);
+            })
+            .catch(function (error) {
+                document.getElementById("vastaus").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+            })
+
+        function naytaJunat(data) {
+            var teksti = "";
+            var junatLoydetty = 0;
+            
+            for (var i = 0; i < data.length; i++) {
+                
+                if (data[i].trainCategory == "Long-distance") {
+                    
+                    for (var j = 0; j < data[i].timeTableRows.length; j++) {
+                        
+                        if (data[i].timeTableRows[j].stationShortCode == "TPE" && 
+                            data[i].timeTableRows[j].type == "DEPARTURE") {
+                            
+                            junatLoydetty++;
+                            
+                            teksti = teksti + "<div class='train'>";
+                            teksti = teksti + "<h3>" + data[i].trainType + " " + data[i].trainNumber + "</h3>";
+                            
+                            var lahtoAsema = data[i].timeTableRows[0].stationShortCode;
+                            var vika = data[i].timeTableRows.length - 1;
+                            var maaranpaa = data[i].timeTableRows[vika].stationShortCode;
+                            
+                            teksti = teksti + "<p class='route'>" + lahtoAsema + " → " + maaranpaa + "</p>";
+                            
+                            var lahtoAika = data[i].timeTableRows[0].scheduledTime;
+                            var lahtoPvm = lahtoAika.substr(0, 10) + " kello: " + lahtoAika.substr(11, 5);
+                            teksti = teksti + "<p><strong>Lähtö Helsingistä:</strong> " + lahtoPvm + "</p>";
+                            
+                            for (var k = 0; k < data[i].timeTableRows.length; k++) {
+                                if (data[i].timeTableRows[k].stationShortCode == "TPE" && 
+                                    data[i].timeTableRows[k].type == "ARRIVAL") {
+                                    var saapumisAika = data[i].timeTableRows[k].scheduledTime;
+                                    var saapumisPvm = saapumisAika.substr(0, 10) + " kello: " + saapumisAika.substr(11, 5);
+                                    teksti = teksti + "<p><strong>Saapuu Tampereelle:</strong> <span class='time'>" + saapumisPvm + "</span></p>";
+                                    break;
+                                }
+                            }
+                            
+                            teksti = teksti + "</div>";
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            if (junatLoydetty === 0) {
+                teksti = "<p>Ei junia Tampereelle tällä hetkellä.</p>";
+            }
+            
+            document.getElementById("vastaus").innerHTML = teksti;
+        }
+    </script>
+</body>
+</html>

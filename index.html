@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etusivu - JSON Harjoitukset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Etusivu</a>
+        <a href="digicafe.html">Digi Cafe</a>
+        <a href="palaveri.html">Palaveri</a>
+        <a href="tyot.html">Työpaikat</a>
+    </nav>
+
+    <div class="container">
+        <div id="vastaus"></div>
+    </div>
+
+    <script>
+        fetch('https://jaakkola.github.io/json/digitekniikat.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (responseJson) {
+                kerro(responseJson);
+            })
+            .catch(function (error) {
+                document.getElementById("vastaus").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+            })
+
+        function kerro(data) {
+            var teksti = "";
+            
+            teksti = "<h1>" + data.otsikko + "</h1>";
+            teksti = teksti + "<p>" + data.kuvaus + "</p>";
+            teksti = teksti + "<p><img src='" + data.kuva + "' alt='kuva' ></p>";
+            
+            teksti = teksti + "<h3>Opintojakso: " + data.opintojakso.nimi + "</h3>";
+            teksti = teksti + "<p>Tunnus: " + data.opintojakso.tunnus + "</p>";
+            teksti = teksti + "<p>Opintopisteet: " + data.opintojakso.opintopisteet + "</p>";
+            
+            teksti = teksti + "<h3>Sisältö:</h3>";
+            teksti = teksti + "<ul>"
+            for (var i = 0; i < data.sisalto.length; i++) {
+                teksti = teksti + "<li>" + data.sisalto[i] + "</li>";
+            }
+            teksti = teksti + "</ul>"
+            
+            teksti = teksti + "<h3>Tekniikat:</h3>";
+            for (var i = 0; i < data.tekniikat.length; i++) {
+                teksti = teksti + "<p><a href='" + data.tekniikat[i].linkki + "' target='_blank'>" + data.tekniikat[i].aihe + "</a></p>";
+            }
+            
+            document.getElementById("vastaus").innerHTML = teksti;
+        }
+    </script>
+</body>
+</html>
